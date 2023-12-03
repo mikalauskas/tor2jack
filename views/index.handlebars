@@ -1,0 +1,35 @@
+<!-- views/index.handlebars -->
+
+{{!< layouts/main}}
+
+{{#content 'body'}}
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Your Torrent Downloader</h1>
+
+    <form action="/download" method="post" class="mb-4">
+      <div class="input-group">
+        <input type="text" name="magnetURI" class="form-control" placeholder="Enter Magnet URI" required>
+        <button type="submit" class="btn btn-primary">Download</button>
+      </div>
+    </form>
+
+    <div class="list-group">
+      <h2>Download History</h2>
+      <ul class="list-group">
+        {{#each torrentHistory}}
+          <li class="list-group-item">{{name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="mt-4">
+      <h2>Search Torrents</h2>
+      <form action="/search" method="get">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search for torrents" required>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{{/content}}

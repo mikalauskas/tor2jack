@@ -1,0 +1,15 @@
+<!-- views/torrent.handlebars -->
+
+{{!< layouts/main}}
+{{#if torrent}}
+  <h1>{{torrent.name}}</h1>
+  <ul>
+    {{#each torrent.files}}
+      <li>
+        <a href="/stream/{{../torrent.infoHash}}/{{@index}}" target="_blank">{{name}}</a>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>Torrent not found</p>
+{{/if}}
